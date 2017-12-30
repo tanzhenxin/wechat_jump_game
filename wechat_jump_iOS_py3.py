@@ -9,9 +9,10 @@ import os
 
 # 截图距离 * time_coefficient = 按键时长
 # 此数据是 iPhoneX 的推荐系数，可根据手机型号进行调整
-time_coefficient = 0.00125
+# time_coefficient = 0.00125
+time_coefficient = 0.00195
 
-c = wda.Client()
+c = wda.Client('http://localhost:8100')
 s = c.session()
 
 def pull_screenshot():
@@ -77,5 +78,3 @@ def onClick(event):
 fig.canvas.mpl_connect('button_press_event', onClick)
 ani = animation.FuncAnimation(fig, updatefig, interval=50, blit=True)
 plt.show()
-
-
